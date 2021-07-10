@@ -1,0 +1,10 @@
+{
+  "personApp": {
+    "PhoneType": {
+      "null": "",
+      "HOME": "HOME",
+      "MOBILE": "MOBILE",
+      "COMMERCIAL": "COMMERCIAL"
+    }
+  }
+}

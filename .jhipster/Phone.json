@@ -1,0 +1,34 @@
+{
+  "name": "Phone",
+  "fields": [
+    {
+      "fieldName": "number",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "phoneType",
+      "fieldType": "PhoneType",
+      "fieldValues": "HOME,MOBILE,COMMERCIAL",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "person",
+      "otherEntityRelationshipName": "phone",
+      "relationshipName": "person"
+    }
+  ],
+  "entityTableName": "phone",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210710155626"
+}
