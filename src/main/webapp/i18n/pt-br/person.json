@@ -1,0 +1,28 @@
+{
+  "personApp": {
+    "person": {
+      "home": {
+        "title": "People",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Person",
+        "createOrEditLabel": "Criar ou editar Person",
+        "notFound": "Nenhum Person encontrado"
+      },
+      "created": "Um novo Person foi criado com o identificador {{ param }}",
+      "updated": "Um Person foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Person foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Person {{ id }}?"
+      },
+      "detail": {
+        "title": "Person"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "cpf": "Cpf",
+      "birthDate": "Birth Date",
+      "phone": "Phone"
+    }
+  }
+}

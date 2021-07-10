@@ -1,0 +1,26 @@
+{
+  "personApp": {
+    "phone": {
+      "home": {
+        "title": "Phones",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Phone",
+        "createOrEditLabel": "Criar ou editar Phone",
+        "notFound": "Nenhum Phone encontrado"
+      },
+      "created": "Um novo Phone foi criado com o identificador {{ param }}",
+      "updated": "Um Phone foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Phone foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Phone {{ id }}?"
+      },
+      "detail": {
+        "title": "Phone"
+      },
+      "id": "ID",
+      "number": "Number",
+      "phoneType": "Phone Type",
+      "person": "Person"
+    }
+  }
+}

@@ -43,7 +43,9 @@
     "devServerPort": 4200,
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "reactive": false
+    "reactive": false,
+    "entities": ["Person", "Phone"],
+    "lastLiquibaseTimestamp": 1625932586000
   },
   "git-provider": "GitHub",
   "git-company": "robsonlira",
