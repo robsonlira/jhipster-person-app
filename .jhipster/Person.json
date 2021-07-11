@@ -24,7 +24,7 @@
   ],
   "relationships": [
     {
-      "relationshipType": "one-to-many",
+      "relationshipType": "many-to-one",
       "otherEntityName": "phone",
       "otherEntityRelationshipName": "person",
       "relationshipName": "phone"

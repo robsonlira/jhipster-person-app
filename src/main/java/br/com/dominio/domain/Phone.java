@@ -3,6 +3,8 @@ package br.com.dominio.domain;
 import br.com.dominio.domain.enumeration.PhoneType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.Cache;
@@ -32,9 +34,10 @@ public class Phone implements Serializable {
     @Column(name = "phone_type", nullable = false)
     private PhoneType phoneType;
 
-    @ManyToOne
-    @JsonIgnoreProperties(value = { "phones" }, allowSetters = true)
-    private Person person;
+    @OneToMany(mappedBy = "phone")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "phone" }, allowSetters = true)
+    private Set<Person> people = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -76,17 +79,35 @@ public class Phone implements Serializable {
         this.phoneType = phoneType;
     }
 
-    public Person getPerson() {
-        return this.person;
+    public Set<Person> getPeople() {
+        return this.people;
     }
 
-    public Phone person(Person person) {
-        this.setPerson(person);
+    public Phone people(Set<Person> people) {
+        this.setPeople(people);
         return this;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public Phone addPerson(Person person) {
+        this.people.add(person);
+        person.setPhone(this);
+        return this;
+    }
+
+    public Phone removePerson(Person person) {
+        this.people.remove(person);
+        person.setPhone(null);
+        return this;
+    }
+
+    public void setPeople(Set<Person> people) {
+        if (this.people != null) {
+            this.people.forEach(i -> i.setPhone(null));
+        }
+        if (people != null) {
+            people.forEach(i -> i.setPhone(this));
+        }
+        this.people = people;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

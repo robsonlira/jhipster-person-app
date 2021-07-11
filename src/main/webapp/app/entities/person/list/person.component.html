@@ -43,6 +43,7 @@
           <th scope="col" jhiSortBy="birthDate">
             <span jhiTranslate="personApp.person.birthDate">Birth Date</span> <fa-icon icon="sort"></fa-icon>
           </th>
+          <th scope="col" jhiSortBy="phone.id"><span jhiTranslate="personApp.person.phone">Phone</span> <fa-icon icon="sort"></fa-icon></th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -55,6 +56,11 @@
           <td>{{ person.lastName }}</td>
           <td>{{ person.cpf }}</td>
           <td>{{ person.birthDate | formatMediumDatetime }}</td>
+          <td>
+            <div *ngIf="person.phone">
+              <a [routerLink]="['/phone', person.phone?.id, 'view']">{{ person.phone?.id }}</a>
+            </div>
+          </td>
           <td class="text-right">
             <div class="btn-group">
               <button type="submit" [routerLink]="['/person', person.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">

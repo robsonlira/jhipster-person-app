@@ -1,0 +1,34 @@
+entity Phone {
+   number String required,
+   phoneType PhoneType required
+}
+
+entity Person {
+   firstName String required,
+   lastName String required,
+   cpf String required,
+   birthDate Instant required
+}
+
+enum PhoneType {
+    HOME, MOBILE, COMMERCIAL
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+   
+    Phone to 
+    Person{phone}            
+}
+
+// Set pagination options
+paginate Person with infinite-scroll
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Phone
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
