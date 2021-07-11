@@ -3,8 +3,6 @@ package br.com.dominio.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.Cache;
@@ -41,10 +39,9 @@ public class Person implements Serializable {
     @Column(name = "birth_date", nullable = false)
     private Instant birthDate;
 
-    @OneToMany(mappedBy = "person")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "person" }, allowSetters = true)
-    private Set<Phone> phones = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties(value = { "people" }, allowSetters = true)
+    private Phone phone;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -112,35 +109,17 @@ public class Person implements Serializable {
         this.birthDate = birthDate;
     }
 
-    public Set<Phone> getPhones() {
-        return this.phones;
+    public Phone getPhone() {
+        return this.phone;
     }
 
-    public Person phones(Set<Phone> phones) {
-        this.setPhones(phones);
+    public Person phone(Phone phone) {
+        this.setPhone(phone);
         return this;
     }
 
-    public Person addPhone(Phone phone) {
-        this.phones.add(phone);
-        phone.setPerson(this);
-        return this;
-    }
-
-    public Person removePhone(Phone phone) {
-        this.phones.remove(phone);
-        phone.setPerson(null);
-        return this;
-    }
-
-    public void setPhones(Set<Phone> phones) {
-        if (this.phones != null) {
-            this.phones.forEach(i -> i.setPerson(null));
-        }
-        if (phones != null) {
-            phones.forEach(i -> i.setPerson(this));
-        }
-        this.phones = phones;
+    public void setPhone(Phone phone) {
+        this.phone = phone;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

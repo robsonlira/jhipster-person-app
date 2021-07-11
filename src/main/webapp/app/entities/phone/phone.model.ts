@@ -5,11 +5,11 @@ export interface IPhone {
   id?: number;
   number?: string;
   phoneType?: PhoneType;
-  person?: IPerson | null;
+  people?: IPerson[] | null;
 }
 
 export class Phone implements IPhone {
-  constructor(public id?: number, public number?: string, public phoneType?: PhoneType, public person?: IPerson | null) {}
+  constructor(public id?: number, public number?: string, public phoneType?: PhoneType, public people?: IPerson[] | null) {}
 }
 
 export function getPhoneIdentifier(phone: IPhone): number | undefined {

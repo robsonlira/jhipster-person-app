@@ -7,7 +7,7 @@ export interface IPerson {
   lastName?: string;
   cpf?: string;
   birthDate?: dayjs.Dayjs;
-  phones?: IPhone[] | null;
+  phone?: IPhone | null;
 }
 
 export class Person implements IPerson {
@@ -17,7 +17,7 @@ export class Person implements IPerson {
     public lastName?: string,
     public cpf?: string,
     public birthDate?: dayjs.Dayjs,
-    public phones?: IPhone[] | null
+    public phone?: IPhone | null
   ) {}
 }
 

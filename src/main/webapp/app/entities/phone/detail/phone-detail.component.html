@@ -22,12 +22,6 @@
         <dd>
           <span jhiTranslate="{{ 'personApp.PhoneType.' + phone.phoneType }}">{{ phone.phoneType }}</span>
         </dd>
-        <dt><span jhiTranslate="personApp.phone.person">Person</span></dt>
-        <dd>
-          <div *ngIf="phone.person">
-            <a [routerLink]="['/person', phone.person?.id, 'view']">{{ phone.person?.id }}</a>
-          </div>
-        </dd>
       </dl>
 
       <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">

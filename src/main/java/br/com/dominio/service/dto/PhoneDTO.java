@@ -18,8 +18,6 @@ public class PhoneDTO implements Serializable {
     @NotNull
     private PhoneType phoneType;
 
-    private PersonDTO person;
-
     public Long getId() {
         return id;
     }
@@ -42,14 +40,6 @@ public class PhoneDTO implements Serializable {
 
     public void setPhoneType(PhoneType phoneType) {
         this.phoneType = phoneType;
-    }
-
-    public PersonDTO getPerson() {
-        return person;
-    }
-
-    public void setPerson(PersonDTO person) {
-        this.person = person;
     }
 
     @Override
@@ -80,7 +70,6 @@ public class PhoneDTO implements Serializable {
             "id=" + getId() +
             ", number='" + getNumber() + "'" +
             ", phoneType='" + getPhoneType() + "'" +
-            ", person=" + getPerson() +
             "}";
     }
 }

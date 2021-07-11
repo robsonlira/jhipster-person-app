@@ -35,7 +35,6 @@
           <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
           <th scope="col"><span jhiTranslate="personApp.phone.number">Number</span></th>
           <th scope="col"><span jhiTranslate="personApp.phone.phoneType">Phone Type</span></th>
-          <th scope="col"><span jhiTranslate="personApp.phone.person">Person</span></th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -46,11 +45,6 @@
           </td>
           <td>{{ phone.number }}</td>
           <td jhiTranslate="{{ 'personApp.PhoneType.' + phone.phoneType }}">{{ phone.phoneType }}</td>
-          <td>
-            <div *ngIf="phone.person">
-              <a [routerLink]="['/person', phone.person?.id, 'view']">{{ phone.person?.id }}</a>
-            </div>
-          </td>
           <td class="text-right">
             <div class="btn-group">
               <button type="submit" [routerLink]="['/phone', phone.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">

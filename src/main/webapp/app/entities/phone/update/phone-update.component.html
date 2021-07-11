@@ -41,19 +41,6 @@
             </small>
           </div>
         </div>
-
-        <div class="form-group">
-          <label class="form-control-label" jhiTranslate="personApp.phone.person" for="field_person">Person</label>
-          <select class="form-control" id="field_person" data-cy="person" name="person" formControlName="person">
-            <option [ngValue]="null"></option>
-            <option
-              [ngValue]="personOption.id === editForm.get('person')!.value?.id ? editForm.get('person')!.value : personOption"
-              *ngFor="let personOption of peopleSharedCollection; trackBy: trackPersonById"
-            >
-              {{ personOption.id }}
-            </option>
-          </select>
-        </div>
       </div>
 
       <div>

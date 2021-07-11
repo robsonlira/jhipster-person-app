@@ -24,6 +24,8 @@ public class PersonDTO implements Serializable {
     @NotNull
     private Instant birthDate;
 
+    private PhoneDTO phone;
+
     public Long getId() {
         return id;
     }
@@ -64,6 +66,14 @@ public class PersonDTO implements Serializable {
         this.birthDate = birthDate;
     }
 
+    public PhoneDTO getPhone() {
+        return phone;
+    }
+
+    public void setPhone(PhoneDTO phone) {
+        this.phone = phone;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -94,6 +104,7 @@ public class PersonDTO implements Serializable {
             ", lastName='" + getLastName() + "'" +
             ", cpf='" + getCpf() + "'" +
             ", birthDate='" + getBirthDate() + "'" +
+            ", phone=" + getPhone() +
             "}";
     }
 }

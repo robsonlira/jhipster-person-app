@@ -30,6 +30,12 @@
         <dd>
           <span>{{ person.birthDate | formatMediumDatetime }}</span>
         </dd>
+        <dt><span jhiTranslate="personApp.person.phone">Phone</span></dt>
+        <dd>
+          <div *ngIf="person.phone">
+            <a [routerLink]="['/phone', person.phone?.id, 'view']">{{ person.phone?.id }}</a>
+          </div>
+        </dd>
       </dl>
 
       <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
